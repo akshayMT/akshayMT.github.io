@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The Gratitude Project</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	 <div>
+        <div style= 'margin-left: 220px; margin-top: 15px' >
+            <div id="listOfUsers"></div>
+        </div>
+        <div style="position: fixed; top: 30px; left: 15px; width: 200px;">
+            <div class="listOfStaffVertical color1" onclick="clickedMember(this)" index='1' id="id1">
+                Doctors
+            </div>
+            <div class="listOfStaffVertical color2" onclick="clickedMember(this)" index='2' id="id2">
+                Interns
+            </div>
+            <div class="listOfStaffVertical color3" onclick="clickedMember(this)" index='3' id="id3">
+                Med Students
+            </div>
+            <div class="listOfStaffVertical color4" onclick="clickedMember(this)" index='4' id="id4">
+                Nurses
+            </div>
+            <div class="listOfStaffVertical color5" onclick="clickedMember(this)" index='5' id="id5">
+                Pharmacists
+            </div>
+            <div class="listOfStaffVertical color6" onclick="clickedMember(this)" index='6' id="id6">
+                Physician Assistants
+            </div>
+            <div class="listOfStaffVertical color7" onclick="clickedMember(this)" index='7' id="id7">
+                Social Workers
+            </div>
+        </div>
+        
+        <div style='position: fixed; bottom: 0; width: 100%; height: 200px; z-index: 2; background: #fff;'>
+            <a href="index.html" style='position: absolute; bottom: 32px; left: 48px; font-size: 24px; font-weight: 600; color: #3fbda6; text-decoration: none;'>
+                <div>
+                    You
+                </div>
+                <div>
+                    Count
+                </div>
+            </a>
+            <div style='position: absolute; border: none; right: 48px; bottom: 32px'>
+                <button type="button" style=' border: none; outline: none' >
+                    <a href='contact.html' style='color:#3fbda6; font-size: 24px; font-weight: 600; outline: 0; border: none; background: #fff; text-decoration: none'>Next</a>
+                </button>
+            </div>
+        </div>
+    </div>
+    <script>
+        window.onload = function(){
+            idSmall = localStorage.getItem("storageName");
+            $('#'+idSmall).toggleClass('activePeople');
+            // console.log(idSmall);
+
+            var Users = {
+                "nurses": [
+                    {
+                        "gender": "female",
+                        "name": {
+                            "title": "mrs",
+                            "first": "carla",
+                            "last": "silva"
+                        },
+                        "location": {
+                            "street": "2613 rua rio de janeiro ",
+                            "city": "campo grande",
+                            "state": "pará",
+                            "postcode": 98200
+                        },
+                        "email": "carla.silva@example.com",
+                        "login": {
+                            "username": "orangebird651",
+                            "password": "seattle",
+                            "salt": "JM0larSD",
+                            "md5": "a82b3df288d7147dac7677076a8b19a8",
+                            "sha1": "2261c3513182a4f3fbab2dace70b5def2bd7972b",
+                            "sha256": "fb4e7afd8478f68587bbc358379d333fc487b7ed0fc4fbfc9c3e633256e0f675"
+                        },
+                        "dob": "1986-06-24 22:28:55",
+                        "registered": "2005-01-24 00:33:32",
+                        "phone": "(77) 9786-8924",
+                        "cell": "(00) 4632-3590",
+                        "id": {
+                            "name": "",
+                            "value": null
+                        },
+                        "picture": {
+                            "large": "pics/20.jpg",
+                            "medium": "https://randomuser.me/api/portraits/med/women/54.jpg",
+                            "thumbnail": "https://randomuser.me/api/portraits/thumb/women/54.jpg"
+                        },
+                        "nat": "BR"
+                    },
+                    {
+                        "gender": "female",
+                        "name": {
+                            "title": "ms",
+                            "first": "roos-anne",
+                            "last": "sardjoe"
+                        },
+                        "location": {
+                            "street": "8612 achter sint pieter",
+                            "city": "nissewaard",
+                            "state": "noord-holland",
+                            "postcode": 39653
+                        },
+                        "email": "roos-anne.sardjoe@example.com",
+                        "login": {
+                            "username": "silvertiger369",
+                            "password": "hazard",
+                            "salt": "iUQgRJxy",
+                            "md5": "bfc74f0cf2c1a1eaf6458f761863848f",
+                            "sha1": "371482c91e64a06ff8e9682f382be3b9e54028b8",
+                            "sha256": "8c2f89fe82fc8249619bdd60139e38a9dc87c3e139476dbc92d9c6123cf9d0a3"
+                        },
+                        "dob": "1985-09-04 11:41:35",
+                        "registered": "2011-01-05 07:56:01",
+                        "phone": "(397)-008-0547",
+                        "cell": "(475)-190-4819",
+                        "id": {
+                            "name": "BSN",
+                            "value": "42125004"
+                        },
+                        "picture": {
+                            "large": "pics/43.jpg",
+                            "medium": "https://randomuser.me/api/portraits/med/women/63.jpg",
+                            "thumbnail": "https://randomuser.me/api/portraits/thumb/women/63.jpg"
+                        },
+                        "nat": "NL"
+                    },
+                    {
+                        "gender": "female",
+                        "name": {
+                            "title": "ms",
+                            "first": "katrine",
+                            "last": "petersen"
+                        },
+                        "location": {
+                            "street": "7800 frejasvej",
+                            "city": "rødvig stevns",
+                            "state": "midtjylland",
+                            "postcode": 51111
+                        },
+                        "email": "katrine.petersen@example.com",
+                        "login": {
+                            "username": "silverleopard362",
+                            "password": "john1",
+                            "salt": "bXfrfa1h",
+                            "md5": "33b5ac50543313d5c4a92c63348e850c",
+                            "sha1": "d736594bb30cd9eaf13fe80bc7db64c1eb7d243e",
+                            "sha256": "1fcb6417d72cb151a0017aee918f7efda8ab5c5a4ac9988d147a52781097096c"
+                        },
+                        "dob": "1989-10-29 21:58:27",
+                        "registered": "2009-07-17 09:57:55",
+                        "phone": "44865269",
+                        "cell": "43498205",
+                        "id": {
+                            "name": "CPR",
+                            "value": "475097-5623"
+                        },
+                        "picture": {
+                            "large": "pics/48.jpg",
+                            "medium": "https://randomuser.me/api/portraits/med/women/53.jpg",
+                            "thumbnail": "https://randomuser.me/api/portraits/thumb/women/53.jpg"
+                        },
+                        "nat": "DK"
+                    },
+                    {
+                        "gender": "male",
+                        "name": {
+                            "title": "mr",
+                            "first": "anthony",
+                            "last": "campbell"
+                        },
+                        "location": {
+                            "street": "3331 duke st",
+                            "city": "fountainbleu",
+                            "state": "québec",
+                            "postcode": 43858
+                        },
+                        "email": "anthony.campbell@example.com",
+                        "login": {
+                            "username": "organicpanda646",
+                            "password": "torino",
+                            "salt": "m6rN0VDA",
+                            "md5": "6309c07956ca411a99f9d15a098f5c95",
+                            "sha1": "18e254683223d4d0dc5a8009514ac922e2db7129",
+                            "sha256": "f0c3be209d5bc844beaefc8694c457fd259c88d41a0b210a7d7b357face97836"
+                        },
+                        "dob": "1962-03-18 23:15:59",
+                        "registered": "2007-04-14 11:12:30",
+                        "phone": "194-061-9002",
+                        "cell": "451-457-8358",
+                        "id": {
+                            "name": "",
+                            "value": null
+                        },
+                        "picture": {
+                            "large": "pics/52.jpg",
+                            "medium": "https://randomuser.me/api/portraits/med/men/15.jpg",
+                            "thumbnail": "https://randomuser.me/api/portraits/thumb/men/15.jpg"
+                        },
+                        "nat": "CA"
+                    },
+                    {
+                        "gender": "male",
+                        "name": {
+                            "title": "mr",
+                            "first": "leon",
+                            "last": "campbell"
+                        },
+                        "location": {
+                            "street": "9415 north street",
+                            "city": "manchester",
+                            "state": "shropshire",
+                            "postcode": "GC02 4YH"
+                        },
+                        "email": "leon.campbell@example.com",
+                        "login": {
+                            "username": "silverrabbit243",
+                            "password": "snake1",
+                            "salt": "BB2aE8V2",
+                            "md5": "45fe187801bd3989b10969a5d2b172dd",
+                            "sha1": "3d04d1097b29bf959cec5c00fbea01c29459df15",
+                            "sha256": "346e74f44da436e6ad0c738f95dbe852da4c61e328adde6a0869a797f712c3b6"
+                        },
+                        "dob": "1982-04-22 05:01:25",
+                        "registered": "2014-06-18 00:47:13",
+                        "phone": "0119586 668 7131",
+                        "cell": "0767-540-412",
+                        "id": {
+                            "name": "NINO",
+                            "value": "XC 02 64 86 G"
+                        },
+                        "picture": {
+                            "large": "pics/59.jpg",
+                            "medium": "https://randomuser.me/api/portraits/med/men/82.jpg",
+                            "thumbnail": "https://randomuser.me/api/portraits/thumb/men/82.jpg"
+                        },
+                        "nat": "GB"
+                    },
+                    {
+                        "gender": "male",
+                        "name": {
+                            "title": "mr",
+                            "first": "andres",
+                            "last": "mendez"
+                        },
+                        "location": {
+                            "street": "5047 calle de pedro bosch",
+                            "city": "valladolid",
+                            "state": "andalucía",
+                            "postcode": 82608
+                        },
+                        "email": "andres.mendez@example.com",
+                        "login": {
+                            "username": "tinyladybug981",
+                            "password": "bmw325",
+                            "salt": "muHvIhlQ",
+                            "md5": "f5719b4ecb80e2190954833f01854538",
+                            "sha1": "614041e794d775f1450d68da13a92ad34b2a0517",
+                            "sha256": "e570d7ef5b26abf41ef8061e13d17614fb3e3bd62d471c434a4b907438258789"
+                        },
+                        "dob": "1949-07-13 10:01:59",
+                        "registered": "2013-06-26 16:16:42",
+                        "phone": "974-564-657",
+                        "cell": "623-727-023",
+                        "id": {
+                            "name": "DNI",
+                            "value": "47029014-T"
+                        },
+                        "picture": {
+                            "large": "pics/74.jpg",
+                            "medium": "https://randomuser.me/api/portraits/med/men/60.jpg",
+                            "thumbnail": "https://randomuser.me/api/portraits/thumb/men/60.jpg"
+                        },
+                        "nat": "ES"
+                    },
+                    {
+                        "gender": "female",
+                        "name": {
+                            "title": "miss",
+                            "first": "isobel",
+                            "last": "moore"
+                        },
+                        "location": {
+                            "street": "4554 ponsonby road",
+                            "city": "dunedin",
+                            "state": "southland",
+                            "postcode": 82140
+                        },
+                        "email": "isobel.moore@example.com",
+                        "login": {
+                            "username": "smallleopard676",
+                            "password": "tyler",
+                            "salt": "VIgq6DX4",
+                            "md5": "ae45d7de519a8862c157f4ff7ce11708",
+                            "sha1": "05a48559095bf99c3bbd1cb34b669dd011f71b74",
+                            "sha256": "77fe4b01bfb01c56e57a7213533c57a8435c3b1d7c3e4e526cdfc1ac002ebd3b"
+                        },
+                        "dob": "1966-03-10 05:54:19",
+                        "registered": "2013-07-04 03:32:08",
+                        "phone": "(099)-093-4520",
+                        "cell": "(833)-221-4068",
+                        "id": {
+                            "name": "",
+                            "value": null
+                        },
+                        "picture": {
+                            "large": "pics/75.jpg",
+                            "medium": "https://randomuser.me/api/portraits/med/women/60.jpg",
+                            "thumbnail": "https://randomuser.me/api/portraits/thumb/women/60.jpg"
+                        },
+                        "nat": "NZ"
+                    },
+                    {
+                        "gender": "female",
+                        "name": {
+                            "title": "ms",
+                            "first": "patricia",
+                            "last": "riley"
+                        },
+                        "location": {
+                            "street": "3980 north road",
+                            "city": "athy",
+                            "state": "offaly",
+                            "postcode": 85844
+                        },
+                        "email": "patricia.riley@example.com",
+                        "login": {
+                            "username": "redpanda271",
+                            "password": "11111111",
+                            "salt": "LBEvPxHQ",
+                            "md5": "01078eee15423862852d089a5c0e982c",
+                            "sha1": "1358fa0573758d792f2bd790d631199e3021ec04",
+                            "sha256": "56d606085a90131ff939922cce32220db2c2f37bb2cc0b30e01545a92a7474c9"
+                        },
+                        "dob": "1953-12-08 07:27:15",
+                        "registered": "2009-02-13 10:04:12",
+                        "phone": "061-600-5384",
+                        "cell": "081-755-3255",
+                        "id": {
+                            "name": "PPS",
+                            "value": "2219472T"
+                        },
+                        "picture": {
+                            "large": "pics/76.jpg",
+                            "medium": "https://randomuser.me/api/portraits/med/women/92.jpg",
+                            "thumbnail": "https://randomuser.me/api/portraits/thumb/women/92.jpg"
+                        },
+                        "nat": "IE"
+                    },
+                    {
+                        "gender": "female",
+                        "name": {
+                            "title": "ms",
+                            "first": "jana",
+                            "last": "schulze"
+                        },
+                        "location": {
+                            "street": "5453 kirchplatz",
+                            "city": "pirmasens",
+                            "state": "hamburg",
+                            "postcode": 45025
+                        },
+                        "email": "jana.schulze@example.com",
+                        "login": {
+                            "username": "redswan974",
+                            "password": "maxx",
+                            "salt": "694DfmAT",
+                            "md5": "d8c60688798a454895e9dd508660cf3e",
+                            "sha1": "702125c07b2081e7b2804077901b76f34d316bb6",
+                            "sha256": "9458bfabc8402ade9fd07a418a7674717a12c175cc7582381a69c4a7b95e101c"
+                        },
+                        "dob": "1981-05-29 15:50:34",
+                        "registered": "2008-04-30 08:44:32",
+                        "phone": "0991-9372191",
+                        "cell": "0173-2060974",
+                        "id": {
+                            "name": "",
+                            "value": null
+                        },
+                        "picture": {
+                            "large": "pics/90.jpg",
+                            "medium": "https://randomuser.me/api/portraits/med/women/24.jpg",
+                            "thumbnail": "https://randomuser.me/api/portraits/thumb/women/24.jpg"
+                        },
+                        "nat": "DE"
+                    },
+                    {
+                        "gender": "male",
+                        "name": {
+                            "title": "mr",
+                            "first": "dylan",
+                            "last": "lee"
+                        },
+                        "location": {
+                            "street": "8396 anglesea street",
+                            "city": "christchurch",
+                            "state": "auckland",
+                            "postcode": 73613
+                        },
+                        "email": "dylan.lee@example.com",
+                        "login": {
+                            "username": "whiteleopard779",
+                            "password": "health",
+                            "salt": "1lSrY3CV",
+                            "md5": "f56c3dd1e017420ab66d88d5b660f498",
+                            "sha1": "9924956400592448e3116bed5f7a62f5c99cb980",
+                            "sha256": "b425fa0cd09d5882a6a0b01af42f71a7ce3975da40637f0450c247974ab91fbe"
+                        },
+                        "dob": "1977-03-06 21:40:49",
+                        "registered": "2011-12-08 22:34:47",
+                        "phone": "(597)-615-1124",
+                        "cell": "(734)-792-7641",
+                        "id": {
+                            "name": "",
+                            "value": null
+                        },
+                        "picture": {
+                            "large": "https://randomuser.me/api/portraits/men/53.jpg",
+                            "medium": "https://randomuser.me/api/portraits/med/men/53.jpg",
+                            "thumbnail": "https://randomuser.me/api/portraits/thumb/men/53.jpg"
+                        },
+                        "nat": "NZ"
+                    },
+                    {
+                        "gender": "male",
+                        "name": {
+                            "title": "mr",
+                            "first": "romain",
+                            "last": "david"
+                        },
+                        "location": {
+                            "street": "7974 rue des abbesses",
+                            "city": "bordeaux",
+                            "state": "loire-atlantique",
+                            "postcode": 39020
+                        },
+                        "email": "romain.david@example.com",
+                        "login": {
+                            "username": "greengorilla504",
+                            "password": "alpha",
+                            "salt": "RLh13rQW",
+                            "md5": "730d016f587f669ae0f2960c9e1a205f",
+                            "sha1": "a7baba192bfcd35ee4e0e7f0823b822dd8d5e00c",
+                            "sha256": "e0cef4a5c8034b49a44a240e0b8b57e33dee9a35269bd85194583ce223d4be21"
+                        },
+                        "dob": "1992-06-13 08:16:28",
+                        "registered": "2002-07-30 01:39:23",
+                        "phone": "05-96-88-02-52",
+                        "cell": "06-51-01-27-95",
+                        "id": {
+                            "name": "INSEE",
+                            "value": "192587508048 66"
+                        },
+                        "picture": {
+                            "large": "https://randomuser.me/api/portraits/men/61.jpg",
+                            "medium": "https://randomuser.me/api/portraits/med/men/61.jpg",
+                            "thumbnail": "https://randomuser.me/api/portraits/thumb/men/61.jpg"
+                        },
+                        "nat": "FR"
+                    },
+                    {
+                        "gender": "male",
+                        "name": {
+                            "title": "mr",
+                            "first": "santiago",
+                            "last": "garcia"
+                        },
+                        "location": {
+                            "street": "8245 calle de toledo",
+                            "city": "torrejón de ardoz",
+                            "state": "castilla la mancha",
+                            "postcode": 96949
+                        },
+                        "email": "santiago.garcia@example.com",
+                        "login": {
+                            "username": "orangewolf276",
+                            "password": "cosmos",
+                            "salt": "CKXpYwsG",
+                            "md5": "0054108f36240e2ef601d14146fac685",
+                            "sha1": "b3c90bd894ec2e0f6ed2ee3dcc78ed37b39b528b",
+                            "sha256": "463e66192d654d86960fb94e476127f73da12f92b8e34ebcc3eb6660d5292179"
+                        },
+                        "dob": "1945-12-02 09:25:48",
+                        "registered": "2014-05-13 22:54:21",
+                        "phone": "932-794-781",
+                        "cell": "600-463-517",
+                        "id": {
+                            "name": "DNI",
+                            "value": "22966605-O"
+                        },
+                        "picture": {
+                            "large": "https://randomuser.me/api/portraits/men/82.jpg",
+                            "medium": "https://randomuser.me/api/portraits/med/men/82.jpg",
+                            "thumbnail": "https://randomuser.me/api/portraits/thumb/men/82.jpg"
+                        },
+                        "nat": "ES"
+                    },
+                    {
+                        "gender": "male",
+                        "name": {
+                            "title": "mr",
+                            "first": "fatih",
+                            "last": "akar"
+                        },
+                        "location": {
+                            "street": "7506 istiklal cd",
+                            "city": "ankara",
+                            "state": "muş",
+                            "postcode": 84401
+                        },
+                        "email": "fatih.akar@example.com",
+                        "login": {
+                            "username": "redfish312",
+                            "password": "mizuno",
+                            "salt": "gDOuvZxC",
+                            "md5": "ca7696639ae4ab98495e19eb4f0cb04c",
+                            "sha1": "38f2f299471cfb23a184e0a48cdc209dc0bd30b2",
+                            "sha256": "c35db6bd1407e763e1fc63a20a600976017ffb79350d750e0dfeb08a86af0fed"
+                        },
+                        "dob": "1983-03-08 17:07:11",
+                        "registered": "2014-08-30 22:02:53",
+                        "phone": "(023)-729-3147",
+                        "cell": "(637)-295-8090",
+                        "id": {
+                            "name": "",
+                            "value": null
+                        },
+                        "picture": {
+                            "large": "https://randomuser.me/api/portraits/men/52.jpg",
+                            "medium": "https://randomuser.me/api/portraits/med/men/52.jpg",
+                            "thumbnail": "https://randomuser.me/api/portraits/thumb/men/52.jpg"
+                        },
+                        "nat": "TR"
+                    },
+                    {
+                        "gender": "male",
+                        "name": {
+                            "title": "mr",
+                            "first": "rasmus",
+                            "last": "sørensen"
+                        },
+                        "location": {
+                            "street": "8419 slagelsevej",
+                            "city": "billum",
+                            "state": "hovedstaden",
+                            "postcode": 42090
+                        },
+                        "email": "rasmus.sørensen@example.com",
+                        "login": {
+                            "username": "blackwolf226",
+                            "password": "roxy",
+                            "salt": "VfNpSUVy",
+                            "md5": "20b0d102a8ddf615fc3516dee373654f",
+                            "sha1": "ee462ae89edf7e18cf697e3fcce781b35e066a14",
+                            "sha256": "ad6fe6f124e839b30d8c3557fd6c07872771eec94e283c1e24a790046af5e120"
+                        },
+                        "dob": "1960-06-28 17:33:35",
+                        "registered": "2005-05-16 11:49:29",
+                        "phone": "01556447",
+                        "cell": "93033717",
+                        "id": {
+                            "name": "CPR",
+                            "value": "264642-7861"
+                        },
+                        "picture": {
+                            "large": "https://randomuser.me/api/portraits/men/32.jpg",
+                            "medium": "https://randomuser.me/api/portraits/med/men/32.jpg",
+                            "thumbnail": "https://randomuser.me/api/portraits/thumb/men/32.jpg"
+                        },
+                        "nat": "DK"
+                    },
+                    {
+                        "gender": "female",
+                        "name": {
+                            "title": "mademoiselle",
+                            "first": "candice",
+                            "last": "meunier"
+                        },
+                        "location": {
+                            "street": "5294 rue du dauphiné",
+                            "city": "la conversion",
+                            "state": "neuchâtel",
+                            "postcode": 8409
+                        },
+                        "email": "candice.meunier@example.com",
+                        "login": {
+                            "username": "redkoala991",
+                            "password": "stuff",
+                            "salt": "ThOZNgu7",
+                            "md5": "a88c8d0e74ba55a5fda283d97b85f2c9",
+                            "sha1": "a6b80d1f6e5db2f541de1468306f337052300b83",
+                            "sha256": "cce83941d8d9611b2e6d0434207019afef1a03b846a83f666843723e5e687f47"
+                        },
+                        "dob": "1957-06-03 14:55:28",
+                        "registered": "2013-04-03 08:49:47",
+                        "phone": "(280)-834-3830",
+                        "cell": "(970)-207-4781",
+                        "id": {
+                            "name": "AVS",
+                            "value": "756.TIXV.WLSU.71"
+                        },
+                        "picture": {
+                            "large": "https://randomuser.me/api/portraits/women/89.jpg",
+                            "medium": "https://randomuser.me/api/portraits/med/women/89.jpg",
+                            "thumbnail": "https://randomuser.me/api/portraits/thumb/women/89.jpg"
+                        },
+                        "nat": "CH"
+                    },
+                    {
+                        "gender": "female",
+                        "name": {
+                            "title": "miss",
+                            "first": "alexandra",
+                            "last": "wood"
+                        },
+                        "location": {
+                            "street": "8872 buckleys road",
+                            "city": "palmerston north",
+                            "state": "tasman",
+                            "postcode": 89985
+                        },
+                        "email": "alexandra.wood@example.com",
+                        "login": {
+                            "username": "heavyladybug821",
+                            "password": "freefree",
+                            "salt": "vVbLWJgB",
+                            "md5": "35db32a196e990b9dcd9f2ce57dc7085",
+                            "sha1": "e0640e2f4e85734fb712042cd0b4cb8eb78f53c2",
+                            "sha256": "cf5041f13ac9a8bd1c6f1ca09716de13b81765bf2761bab61e924c94d878049f"
+                        },
+                        "dob": "1970-10-12 20:07:21",
+                        "registered": "2015-07-14 05:15:58",
+                        "phone": "(673)-778-8883",
+                        "cell": "(776)-403-9893",
+                        "id": {
+                            "name": "",
+                            "value": null
+                        },
+                        "picture": {
+                            "large": "https://randomuser.me/api/portraits/women/82.jpg",
+                            "medium": "https://randomuser.me/api/portraits/med/women/82.jpg",
+                            "thumbnail": "https://randomuser.me/api/portraits/thumb/women/82.jpg"
+                        },
+                        "nat": "NZ"
+                    },
+                    {
+                        "gender": "male",
+                        "name": {
+                            "title": "mr",
+                            "first": "roberto",
+                            "last": "jennings"
+                        },
+                        "location": {
+                            "street": "6617 the avenue",
+                            "city": "coventry",
+                            "state": "north yorkshire",
+                            "postcode": "A5 2BS"
+                        },
+                        "email": "roberto.jennings@example.com",
+                        "login": {
+                            "username": "goldenmouse378",
+                            "password": "klaus",
+                            "salt": "nbCvDTLh",
+                            "md5": "732ae1e79a6cf4e94837bde5def2765c",
+                            "sha1": "2531314b69cb7ab9b88a6c436fe5cbadcc29be36",
+                            "sha256": "c7b20772aa2465e8782fe78fd7467497ceac506cc966d7bd6f3c6ac232ae216d"
+                        },
+                        "dob": "1966-12-26 18:40:41",
+                        "registered": "2013-05-09 09:36:02",
+                        "phone": "017683 83220",
+                        "cell": "0752-598-864",
+                        "id": {
+                            "name": "NINO",
+                            "value": "ZM 50 03 15 D"
+                        },
+                        "picture": {
+                            "large": "https://randomuser.me/api/portraits/men/2.jpg",
+                            "medium": "https://randomuser.me/api/portraits/med/men/2.jpg",
+                            "thumbnail": "https://randomuser.me/api/portraits/thumb/men/2.jpg"
+                        },
+                        "nat": "GB"
+                    },
+                    {
+                        "gender": "female",
+                        "name": {
+                            "title": "ms",
+                            "first": "nevaeh",
+                            "last": "li"
+                        },
+                        "location": {
+                            "street": "8590 linwood avenue",
+                            "city": "napier",
+                            "state": "waikato",
+                            "postcode": 84130
+                        },
+                        "email": "nevaeh.li@example.com",
+                        "login": {
+                            "username": "smallleopard688",
+                            "password": "oreo",
+                            "salt": "Cgj9pjgd",
+                            "md5": "458026906d84923d1c57e14619713bec",
+                            "sha1": "4933498099beff6b1c5306c387c4dc0f8fa35beb",
+                            "sha256": "5b9ab682655dc70e01c2a877aff9e1a6544659e277967fb381343b8ca064934f"
+                        },
+                        "dob": "1983-11-15 08:33:28",
+                        "registered": "2010-02-02 19:22:53",
+                        "phone": "(662)-733-0993",
+                        "cell": "(441)-007-4294",
+                        "id": {
+                            "name": "",
+                            "value": null
+                        },
+                        "picture": {
+                            "large": "https://randomuser.me/api/portraits/women/54.jpg",
+                            "medium": "https://randomuser.me/api/portraits/med/women/54.jpg",
+                            "thumbnail": "https://randomuser.me/api/portraits/thumb/women/54.jpg"
+                        },
+                        "nat": "NZ"
+                    }
+                    
+                ],
+                "info": {
+                    "seed": "8828c44c3cafe0ff",
+                    "results": 100,
+                    "page": 1,
+                    "version": "1.1"
+                }
+            };
+            var UsersArr = Users.nurses;
+            var eachUser = '';
+
+            var UsersArrPrint = UsersArr.map(function(index)
+                {
+                    var first = index.name.first;
+                    var last = index.name.last;
+                    var pic = index.picture.large;
+
+                    eachUser += '<div class="users" style="float: left;position:relative;"><div onclick="selected(this)" style="position: absolute;width: 128px;height: 128px;background: #55aaaa;opacity: 0;z-index: 2;" id='+first+'></div><img src='+pic+' alt="name" style="opacity: 0.9;"><div style="text-transform: capitalize; color: rgb(63, 189, 166); font-weight: 500; font-size: 14px; margin-top: 5px;">'+first+' '+last+'</div></div>';
+                }
+            );
+            document.getElementById('listOfUsers').innerHTML = eachUser+'<div style="clear: both"></div>';
+
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script>
+        
+        function clickedMember(item){
+            var index = $(item).attr("index");
+            idSmall = 'id'+index;
+
+            var arrSmall = ['id1', 'id2', 'id3', 'id4', 'id5', 'id6', 'id7'];
+
+            for(i=0;i<7;i++){
+                if(arrSmall[i]!=idSmall){
+                    $('#'+arrSmall[i]).removeClass('activePeople');
+                }
+                else{
+                    $('#'+idSmall).toggleClass('activePeople');
+                }
+            }
+        }
+
+        function selected(elem){
+            var id = $(elem).attr("id");
+            $('#'+id).toggleClass('select');
+
+            localStorage.setItem("people",id);
+        }
+    </script>
+</body>
+</html>

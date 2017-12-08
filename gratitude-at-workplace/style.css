@@ -1,0 +1,69 @@
+body, * {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif, Arial;
+  box-sizing: border-box;
+}
+ul{
+	margin: 20px;
+}
+.users{
+	margin: 20px;
+}
+.listOfStaffBox{
+	float: left;
+	width: 110px;
+	height: 170px;
+	margin: 5px;
+}
+.listOfStaff{
+	width: 110px;
+	height: 110px;
+	padding: 10px; 
+}
+.listOfStaffVertical{
+	width: 180px;
+	height: 36px;
+	margin: 5px 10px;
+	padding: 10px;
+	color: #fff;
+	cursor: pointer;
+	transition: height 0.3s;
+}
+.color1{
+	background: #8cb33e;
+}
+.color2{
+	background: #7556a4;
+}
+.color3{
+	background: #2a74b4;
+}
+.color4{
+	background: #3fbda6;
+}
+.color5{
+	background: #cb5699;
+}
+.color6{
+	background: #f26a69;
+}
+.color7{
+	background: #f89a4d;
+}
+
+.smallbox{
+	width: 110px;
+	margin-top: 10px;
+	transition: height 0.3s;
+	height: 0px;
+}
+.active{
+	height: 40px !important;
+}
+.activePeople{
+	height: 110px !important;
+}
+.select{
+	opacity: 0.5 !important;
+}

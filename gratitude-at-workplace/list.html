@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Gratitude Project</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div style='background: #fff; width: 100vw; height: 100vh; color:#3fbda6; overflow-x: hidden'>
+    <div style='position: relative; left: 50%; width: 840px'>
+        <div style='position: absolute; top: 100px;  height: 120px; margin: 0 auto; background: #fff; box-sizing: border-box; left: -50%; color: #fff'>
+            <div class='listOfStaffBox'>
+                <div class='listOfStaff' style=' background: #8cb33e' onclick="clicked(this)" index='1' id="id11">
+                    Doctors
+                </div>
+                <div class="color1 smallbox" id="id1"></div>
+            </div>
+            <div class='listOfStaffBox'>
+                <div class='listOfStaff' style=' background: #7556a4' onclick="clicked(this)" index='2' id="id22">
+                    Interns
+                </div>
+                <div class="color2 smallbox" style='height: 0px;' id="id2"></div>
+            </div>
+            <div class='listOfStaffBox'>
+                <div class='listOfStaff' style=' background: #2a74b4' onclick="clicked(this)" index='3' id="id33">
+                    Med Students
+                </div>
+                <div class="color3 smallbox" style='height: 0px;' id="id3"></div>
+            </div>
+            <div class='listOfStaffBox'>
+                <div class='listOfStaff' style=' background: #3fbda6' onclick="clicked(this)" index='4' id="id44">
+                    Nurses
+                </div>
+                <div class="color4 smallbox" style='height: 0px;' id="id4"></div>
+            </div>
+            <div class='listOfStaffBox'>
+                <div class='listOfStaff' style=' background: #cb5699' onclick="clicked(this)" index='5' id="id55">
+                    Pharmacists
+                </div>
+                <div class="color5 smallbox" style='height: 0px;' id="id5"></div>
+            </div>
+            <div class='listOfStaffBox'>
+                <div class='listOfStaff' style=' background: #f26a69' onclick="clicked(this)" index='6' id="id66">
+                    Physician Assistants
+                </div>
+                <div class="color6 smallbox" style='height: 0px;' id="id6"></div>
+            </div>
+            <div class='listOfStaffBox'>
+                <div class='listOfStaff' style=' background: #f89a4d' onclick="clicked(this)" index='7' id="id77">
+                    Social Workers
+                </div>
+                <div class="color7 smallbox" style='height: 0px;' id="id7"></div>
+            </div>
+        </div>
+    </div>
+    <a href="index.html" style='position: absolute; bottom: 32px; left: 48px; font-size: 24px; font-weight: 600; color: #3fbda6; text-decoration: none;'>
+        <div>
+            You
+        </div>
+        <div>
+            Count
+        </div>
+    </a>
+    <div style='position: absolute; border: none; right: 48px; bottom: 32px'>
+        <button type="button" style=' border: none; outline: none;'>
+            <a id="nextBtn" style='color:#3fbda6; opacity: 0.4; font-size: 24px; font-weight: 600; outline: 0; border: none; background: #fff; text-decoration: none;cursor: pointer;'>Next</a>
+        </button>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+<!-- <script type="text/javascript" src="script.js"></script> -->
+<script>
+    var idSmallBox;
+    function clicked(item) {
+        console.log('clicked');
+        document.getElementById('nextBtn').style.cursor = "not-allowed";
+        document.getElementById('nextBtn').style.opacity = 1;
+        document.getElementById('nextBtn').href = "members.html";
+
+        var index = $(item).attr("index");
+        // var idBigBox = $(item).attr("id");
+        idSmallBox = 'id'+index;
+
+        var arrSmallBox = ['id1', 'id2', 'id3', 'id4', 'id5', 'id6', 'id7'];
+
+        for(i=0;i<7;i++){
+            if(arrSmallBox[i]!=idSmallBox){
+                $('#'+arrSmallBox[i]).removeClass('active');
+            }
+            else{
+                $('#'+idSmallBox).toggleClass('active');
+            }
+        }
+        // console.log(idSmallBox);
+        localStorage.clear();
+        localStorage.setItem("storageName",idSmallBox);
+    }
+
+</script>
+</body>
+</html>

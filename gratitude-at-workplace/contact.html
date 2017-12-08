@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The Gratitude Project</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	 <div style='background: #3fbda6; width: 100vw; height: 100vh; position: relative; color:#fff;'>
+        <div style='position: absolute; top: 48px; left: 48px; font-size: 48px; font-weight: 600;'>
+            <div>
+                Write A Thank You
+            </div>
+            <div>
+                <span>Note To</span>
+                <span id="name" style="text-transform: capitalize;"></span>
+            </div>
+        </div>
+
+        <div style='position: absolute; top: 240px; left: 48px; font-weight: 400; width: calc(100vw - 96px); height: 192px;'>
+            <textarea name="message" cols="10" rows="5" style="padding: 10px; width: 100%; height: 100%; font-size: 36px; letter-spacing: 2px;"></textarea>
+        </div>
+        
+        <a href="index.html" style='position: absolute; bottom: 32px; left: 48px; font-size: 24px; font-weight: 600; color: #fff; text-decoration: none;'>
+            <div>
+                You
+            </div>
+            <div>
+                Count
+            </div>
+        </a>
+
+        <div style='position: absolute; border: none; right: 180px; bottom: 32px'>
+            <button type="button" style= 'border: none; outline: none' >
+                <a href="members.html" style='color:#fff; font-size: 24px; font-weight: 600; outline: 0; border: none; background: #3fbda6; text-decoration: none;'>Back</a>
+            </button>
+        </div>
+
+        <div style='position: absolute; border: none; right: 48px; bottom: 32px'>
+            <button type="button" style= 'border: none; outline: none' >
+                <a href="sent.html" style='color:#fff; font-size: 24px; font-weight: 600; outline: 0; border: none; background: #3fbda6; text-decoration: none;'>Submit</a>
+            </button>
+        </div>
+    </div>
+    <script>
+        window.onload = function(){
+            id = localStorage.getItem("people");
+            document.getElementById('name').innerHTML = id;
+        }
+    </script>
+</body>
+</html>
